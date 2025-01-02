@@ -1,6 +1,6 @@
 //Brute Force
 //TC=n2
-//SC=n
+//SC=const as ans is given in ques
 // class Solution {
 //     public int[] vowelStrings(String[] words, int[][] queries) {
 //         int[] ans=new int[queries.length];
@@ -24,6 +24,8 @@
 // [0,1,2,3,4]// normal array
 // [0,1,1,2,3,4]// prefix array is always jo normal array ka number hai usko chod like array=a[1] then prefix array will have a[0] only not a[1]
 
+//TC=2n
+//SC=n as ans wala is input given
 class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {
         int[] prefix=new int[words.length+1];
