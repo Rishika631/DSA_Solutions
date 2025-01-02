@@ -25,7 +25,7 @@
 // [0,1,1,2,3,4]// prefix array is always jo normal array ka number hai usko chod like array=a[1] then prefix array will have a[0] only not a[1]
 
 //TC=2n
-//SC=n as ans wala is input given
+//SC=n as ans wala is output given
 class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {
         int[] prefix=new int[words.length+1];
@@ -52,3 +52,47 @@ class Solution {
         return ans;
         }
 }
+
+// best approach
+//TC=2n
+//SC=n as ans wala is output given
+// class Solution {
+//     public int[] vowelStrings(String[] words, int[][] queries) {
+//         int n = words.length;
+//         int[] count = new int[n + 1]; // Prefix array to store cumulative counts of vowel strings
+        
+//         // Constructing the prefix array
+//         for (int i = 0; i < n; i++) {
+//             if (isVowelString(words[i])) { // Efficient modular check
+//                 count[i + 1]++; // Increment if the word is a vowel string
+//             }
+//         }
+        
+//         // Accumulating counts for prefix sum
+//         for (int i = 1; i <= n; i++) {
+//             count[i] += count[i - 1]; // Add the previous count for cumulative sum
+//         }
+        
+//         // Processing the queries
+//         int[] res = new int[queries.length];
+//         int i = 0; // Result array index
+//         for (int[] q : queries) { // Enhanced for-loop improves readability and avoids manual indexing
+//             int l = q[0];
+//             int r = q[1];
+//             res[i++] = count[r + 1] - count[l]; // Difference in prefix sums gives the result for the range
+//         }
+        
+//         return res; // Return the result array
+//     }
+    
+//     // Helper method to check if a string starts and ends with a vowel
+//     public boolean isVowelString(String str) {
+//         return isVowel(str.charAt(0)) && isVowel(str.charAt(str.length() - 1)); // Clear separation of concerns
+//     }
+    
+//     // Helper method to check if a character is a vowel
+//     public boolean isVowel(char ch) {
+//         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'; // Compact and efficient
+//     }
+// }
+
