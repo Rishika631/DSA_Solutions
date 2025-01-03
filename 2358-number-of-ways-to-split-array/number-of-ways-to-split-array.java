@@ -22,5 +22,4 @@ class Solution {
         return count;
     }
 }
-// [-10,-4,-8,-7]
-// [-10,-14,-22,-29]
+// use long as for larger sum values it will be hard
