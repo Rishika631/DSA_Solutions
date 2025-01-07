@@ -1,3 +1,6 @@
+//Brute force
+//TC=2N
+//SC=N
 class Solution {
     public List<String> stringMatching(String[] words) {
         HashSet<String> hs=new HashSet<String>();
