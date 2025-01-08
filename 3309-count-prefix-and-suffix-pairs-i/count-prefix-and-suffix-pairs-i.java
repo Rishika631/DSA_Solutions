@@ -1,19 +1,26 @@
+//TC=N2
+//SC=o(1)
+
 class Solution {
     public int countPrefixSuffixPairs(String[] words) {
-        int n = words.length;
-        int ans = 0;
-        for(int i = 0; i < n; i++) {
-            String s1 = words[i];
-            for(int j = i + 1; j < n; j++) {
-                String s2 = words[j];
-                if(s2.length() < s1.length()) continue;
-                String pre = s2.substring(0, s1.length());
-                String suf = s2.substring(s2.length() - s1.length());
-                if(pre.equals(s1) && suf.equals(s1)) {
-                    ans++;
+        int count=0;
+        for(int i=0;i<words.length;i++)
+        {
+            for(int j=i+1;j<words.length;j++)
+            {
+                if(words[j].contains(words[i]))
+                {
+                    int n=words[i].length();
+                    String prefix=words[j].substring(0,n);
+                    String suffix=words[j].substring(words[j].length()-n,words[j].length());
+                    if((prefix.equals(words[i]))&&(suffix.equals(words[i])))
+                    {
+                        count++;
+                    }
+
                 }
             }
         }
-        return ans;
+        return count;
     }
 }
