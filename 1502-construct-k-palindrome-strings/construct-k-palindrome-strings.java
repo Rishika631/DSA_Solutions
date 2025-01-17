@@ -1,5 +1,10 @@
-//TC=2n
-//SC=n
+//TC=n as second loop is 26 so fixed so const time complexity
+//SC=1 as 26 array is fixed size so const
+//annabelle------odd= 1----- this means that min number of palindrome strings using all chars of s is no. of unique chars present like unique chars se upar wali values k k strings we can form 
+//annabdelle-----odd=2------ 
+//xor is same walo k 0 diff walo k 1
+//for toggle back we will have to use xor operator
+//Integrer.bitCount(oddcount)---to count set(1 bit) in binary value
 
 class Solution {
     public boolean canConstruct(String s, int k) {
@@ -27,4 +32,3 @@ class Solution {
 }
 
 
-// ror
