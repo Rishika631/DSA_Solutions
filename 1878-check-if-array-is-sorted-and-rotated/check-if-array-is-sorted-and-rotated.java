@@ -30,6 +30,7 @@
 // }
 
 //editorial approach
+//better appraoch as sc is o(1) means const with tc=o(n)
 class Solution {
 
     public boolean check(int[] nums) {
