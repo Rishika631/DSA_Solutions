@@ -1,3 +1,6 @@
+//TC=3n----O(n)
+//SC=n as array
+
 class Solution {
     public boolean check(int[] nums) {
         int[] b=new int[nums.length];
