@@ -1,3 +1,6 @@
+//TC=2n2==O(n^2)
+//SC=o(1)
+
 class Solution {
     public int longestMonotonicSubarray(int[] nums) {
         int ans=1;
