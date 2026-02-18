@@ -38,20 +38,50 @@
 //time=2n
 //space=const
 
+// class Solution {
+//     public int maxScore(String s) {
+//         int n=s.length();
+//         int total_ones=0;
+//         int zero=0;
+//         int one=0;
+//         int score=Integer.MIN_VALUE;
+//         for(int i=0;i<=n-1;i++)
+//             {
+//                 if(s.charAt(i)=='1')
+//                 {
+//                     total_ones++;
+//                 }
+//             }
+//         for(int i=0;i<=n-2;i++)
+//         {
+//             if(s.charAt(i)=='1')
+//             {
+//                 one++;
+//             }else
+//             {
+//                 zero++;
+//             }
+
+//             score=Math.max(score, zero+(total_ones-one));
+//         }
+//         return score;
+//     }
+// }
+
+// one pass soln 
+//score=zeroL+ oneR
+//oneTotal=oneL+oneR
+//oneTotal-oneL=oneR
+//score=zeroL-oneL+oneTotal maximize zeroL-oneL as oneTotal is const
+//time=n
+//space=const
+
 class Solution {
     public int maxScore(String s) {
         int n=s.length();
-        int total_ones=0;
         int zero=0;
         int one=0;
         int score=Integer.MIN_VALUE;
-        for(int i=0;i<=n-1;i++)
-            {
-                if(s.charAt(i)=='1')
-                {
-                    total_ones++;
-                }
-            }
         for(int i=0;i<=n-2;i++)
         {
             if(s.charAt(i)=='1')
@@ -62,8 +92,12 @@ class Solution {
                 zero++;
             }
 
-            score=Math.max(score, zero+(total_ones-one));
+            score=Math.max(score, zero-one);
         }
-        return score;
+        if(s.charAt(n-1)=='1')
+        {
+            one++;
+        }
+        return score+one;
     }
 }
