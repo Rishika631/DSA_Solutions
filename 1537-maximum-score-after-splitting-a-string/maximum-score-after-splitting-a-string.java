@@ -1,36 +1,32 @@
+// brute force
+//i-> 0 to n-2 loop for diving string in substring
+//1st inner for loop -> 0 to i-> no. of zeroes
+//2nd for loop -> i+1 to n-1-> no. of ones
 class Solution {
     public int maxScore(String s) {
-    int totalones=0;
-    int max=0;
-    int zeroes=0;
-    int ones=0;
-        for (int i=0;i<s.length();i++)
-        {
-            if(s.charAt(i)=='1')
-            {
-            totalones++;
-            }
-        }
-        for(int j=0;j<s.length()-1;j++)
-        {
-            if(s.charAt(j)=='0')
-            {
-                zeroes++;
-            }
-            else
-            {
-            ones++;
-            }
-            int score=zeroes+(totalones-ones);
-            if(max<score)
-            {
-            max=score;
-            }
-            score=0;
+        int n=s.length();
 
+        int score=Integer.MIN_VALUE;
+        for(int i=0;i<=n-2;i++)
+        {
+            int zero=0;
+            int one=0;
+            for(int j=0;j<=i;j++)
+            {
+                if(s.charAt(j)=='0')
+                {
+                    zero++;
+                }
+            }
+            for(int j=i+1;j<=n-1;j++)
+            {
+                if(s.charAt(j)=='1')
+                {
+                    one++;
+                }
+            }
+            score=Math.max(score, zero+one);
         }
-        return max;
-        }
+        return score;
+    }
 }
-//time complexity o(2n)
-//space complexity o(1)
