@@ -1,3 +1,6 @@
+//time-2^n(for recurrsion)*n(for loop)*n(.equals)
+//space=n
+
 class Solution {
     public void backtrack(String[] nums, StringBuilder str, String[] result)
     {
