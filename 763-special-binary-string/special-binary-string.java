@@ -1,23 +1,32 @@
+//we have the special string so we will take the inner string see in recurssion if it gives the best string and so one and return the best one we will check the sum==0 to find the 
+//special string and then keep track of index to have consecutive strings
+//Time=n(for loop)+T(n-2)+sorting
+//n+n-2+t(n-4)+sorting...=(n+n+..)-2(1+2+3...)+sorting=approx(n^2)
+//[(1+2+3.. )->n(n+1)/2
+//space-n(for list)- that is only used at one point of recursion
+
 class Solution {
     public String makeLargestSpecial(String s) {
-        int count = 0, i = 0;
-        List<String> res = new ArrayList<>();
-        
-        for (int j = 0; j < s.length(); j++) {
-            // Track balance: +1 for '1', -1 for '0'
-            if (s.charAt(j) == '1') count++;
-            else count--;
-            
-            // Found a balanced chunk when count returns to 0
-            if (count == 0) {
-                // Recursively maximize inner part, wrap with 1...0
-                res.add('1' + makeLargestSpecial(s.substring(i + 1, j)) + '0');
-                i = j + 1; // Move to next potential chunk
+        List<String> specials=new ArrayList<>();
+        int sum=0;
+        int start=0;
+        String result="";
+        for(int i=0;i<s.length();i++)
+        {
+            sum+=(s.charAt(i)=='1')?1:-1;
+            if(sum==0)
+            {
+                String innerstring=s.substring(start+1,i);//leaving start 1 and end 0
+                specials.add("1"+makeLargestSpecial(innerstring)+"0");
+                start=i+1;
             }
+
         }
-        
-        // Sort chunks in descending order for largest arrangement
-        Collections.sort(res, Collections.reverseOrder());
-        return String.join("", res);
+        Collections.sort(specials, Collections.reverseOrder()); // to get in lexicographical order
+        for(String str:specials)
+        {
+            result+=str;
+        }
+        return result;
     }
 }
