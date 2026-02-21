@@ -43,6 +43,8 @@
 //basic approach
 // convert all binary to decimal and store it in a set then run a for loop to know if that value is in a set with one more num like n=3 then run from 0 to 3 so 4 num so atleast 1 num will not be in 
 // the set and return that num
+//space-n(hashset)
+//time-n(for loop)*n(convert string to binary integer)
 class Solution {
     
     public String findDifferentBinaryString(String[] nums) {
