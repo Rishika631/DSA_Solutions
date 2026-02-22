@@ -25,21 +25,39 @@
 
 //bitwise methods
 // for both time - const as 30 bits only and space const as nothing new we take
+// class Solution {
+//     public int binaryGap(int n) {
+        
+//         int result=0;
+//         int curr=0;
+//         int prev=-1;
+//         while(n>0)
+//         {
+//             if((n&1)>0)//to check if the rightmost bit is set or not do n&1
+//             {
+//                 result=prev != -1?Math.max(result,curr-prev):result;
+//                 prev=curr;
+//             }
+//             curr++;
+//             n>>=1;// to right shift num by 1
+//         }
+//         return result;
+//     }
+// }
+// same as above just for loop now from 0 to 31 as 30 bits max
 class Solution {
     public int binaryGap(int n) {
         
         int result=0;
-        int curr=0;
         int prev=-1;
-        while(n>0)
+        for(int curr=0;curr<32;curr++)
         {
-            if((n&1)>0)//to check if the rightmost bit is set or not do n&1
+            if(((n>>curr)&1)>0)//to check if the rightmost bit is set or not do n&1 basically doing that only just curr ko automatically for loop 
+            // mai plus kar rhe n utta hi uss num to right shift kar rhe and phir uske sath and le k set bit check kar rhe 
             {
                 result=prev != -1?Math.max(result,curr-prev):result;
                 prev=curr;
             }
-            curr++;
-            n>>=1;// to right shift num by 1
         }
         return result;
     }
