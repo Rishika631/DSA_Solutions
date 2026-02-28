@@ -23,7 +23,8 @@
 // }
 
 //optimised 
-
+//time-2n- two for loops
+//space-n- prefix array so n
 class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {
         int n=queries.length;
