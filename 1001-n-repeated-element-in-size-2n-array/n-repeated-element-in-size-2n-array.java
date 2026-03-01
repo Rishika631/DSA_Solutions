@@ -1,21 +1,47 @@
+// brute force 
+//time=n^2
+//space-const
+
+// class Solution {
+//     public int repeatedNTimes(int[] nums) {
+//         int n=nums.length/2;
+//         int ans=0;
+//         for(int i=0;i<=n;i++)
+//         {
+//             int count=0;
+//             for(int j=0;j<n+2;j++)
+//             {
+//                 if(nums[i]==nums[j])
+//                 {
+//                     count++;
+//                 }
+//             }
+//             if(count>1)
+//             {
+//                 ans=nums[i];
+//                 break;
+//             }
+//         }
+//         return ans;
+//     }
+// }
+
+
 class Solution {
     public int repeatedNTimes(int[] nums) {
         int n=nums.length/2;
         int ans=0;
-        for(int i=0;i<=n;i++)
+        HashSet<Integer> hs=new HashSet<>();
+        for(int i=0;i<=n+1;i++)// as n+1 unique values so need 1 extra so any ele comes twice
         {
-            int count=0;
-            for(int j=0;j<n+2;j++)
-            {
-                if(nums[i]==nums[j])
-                {
-                    count++;
-                }
-            }
-            if(count>1)
+            if(hs.contains(nums[i]))
             {
                 ans=nums[i];
                 break;
+            }
+            else
+            {
+                hs.add(nums[i]);
             }
         }
         return ans;
