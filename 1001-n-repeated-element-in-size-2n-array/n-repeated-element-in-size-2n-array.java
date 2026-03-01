@@ -26,7 +26,8 @@
 //     }
 // }
 
-
+// space-n
+//time-n
 class Solution {
     public int repeatedNTimes(int[] nums) {
         int n=nums.length/2;
