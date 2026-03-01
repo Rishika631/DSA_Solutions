@@ -51,21 +51,38 @@
 
 // space-const space approach as 10^4 const
 //time-n
+// class Solution {
+//     public int repeatedNTimes(int[] nums) {
+//         int[] arr=new int[10000];
+//         for(int i=0;i<nums.length;i++)
+//         {
+//             if(arr[nums[i]]==1)
+//             {
+                
+//                 return nums[i];
+//             }
+//             else
+//             {
+//                 arr[nums[i]]=1;
+//             }
+//         }
+//         return -1;// never reach this 
+//     }
+// }
+
+
+//time-n
+//space-const fully
+// if 50% filled with n repeating wala num then we have to put it i-2 ya i-1 place pr ek na ek baari so just check that just one edge case if size of array is 4 then fails so it will be at the edge of the array the repeating ele so return that
 class Solution {
     public int repeatedNTimes(int[] nums) {
-        int[] arr=new int[10000];
-        for(int i=0;i<nums.length;i++)
+        for(int i=2;i<nums.length;i++)
         {
-            if(arr[nums[i]]==1)
+            if(nums[i]==nums[i-1]|| nums[i]==nums[i-2])
             {
-                
                 return nums[i];
             }
-            else
-            {
-                arr[nums[i]]=1;
-            }
         }
-        return -1;// never reach this 
+        return nums[0];// upar wala sab handle  kar lega n this will handle for size array 4
     }
 }
