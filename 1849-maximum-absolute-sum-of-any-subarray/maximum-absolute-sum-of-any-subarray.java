@@ -19,7 +19,7 @@ class Solution {
 
         for(int i=1;i<len;i++)
         {
-            currMaxSubarraySum= Math.max(nums[i], currMaxSubarraySum+nums[i]);
+            currMaxSubarraySum= Math.max(nums[i], currMaxSubarraySum+nums[i]);// this is basically iss ele se naya subarray lu ya purane wale ko continue karu iss ele ko add kar k
             maxSubarraySum=Math.max(maxSubarraySum, currMaxSubarraySum);
             currMinSubarraySum= Math.min(nums[i], currMinSubarraySum+nums[i]);
             minSubarraySum=Math.min(minSubarraySum, currMinSubarraySum);
