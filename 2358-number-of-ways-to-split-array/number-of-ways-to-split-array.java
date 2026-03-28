@@ -1,25 +1,23 @@
-//TC=2n
-//SC=n for prefix array 
+
 
 class Solution {
     public int waysToSplitArray(int[] nums) {
-        int count=0;
-        long[] prefix=new long[nums.length];
+        int len=nums.length;
+        int result=0;
+        long[] prefix= new long[len];
         prefix[0]=nums[0];
-        for(int i=1;i<nums.length;i++)
+        for(int i=1;i<len;i++)
         {
             prefix[i]=prefix[i-1]+nums[i];
         }
-        for(int j=0;j<nums.length-1;j++)
+        for(int i=0;i<len-1;i++)//len-1 as we donot want right to be empty 2nd condition in ques
         {
-            long left=prefix[j];
-            long right=prefix[nums.length-1]-prefix[j];
-            if(left>=right)
+            long right=prefix[len-1]-prefix[i];
+            if(prefix[i]>=right)//left>=right
             {
-                count++;
+                result++;
             }
         }
-        return count;
+        return result;
     }
 }
-// use long as for larger sum values it will be changed so sum gadbad ho jayega so be careful
