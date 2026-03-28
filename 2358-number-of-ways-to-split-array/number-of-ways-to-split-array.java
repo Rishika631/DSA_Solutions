@@ -1,10 +1,11 @@
-
+// time- o(2n)
+//space-o(n)
 
 class Solution {
     public int waysToSplitArray(int[] nums) {
         int len=nums.length;
         int result=0;
-        long[] prefix= new long[len];
+        long[] prefix= new long[len];// as very large value when added 
         prefix[0]=nums[0];
         for(int i=1;i<len;i++)
         {
