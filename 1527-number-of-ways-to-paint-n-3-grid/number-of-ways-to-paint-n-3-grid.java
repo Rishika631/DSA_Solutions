@@ -1,6 +1,6 @@
 //time-O(n) as only recursion nothing else all other loops const
 //space-O(n)*12(memonization) as that plus recursive stack
-
+// basically ek row ka saare possible combo dhundho and phir usko baki saare row mai trial and error karo 
 class Solution {
     int mod=1_000_000_007;
      // since 3 columns fixed we find all possible ways for 3 columns and 1 row and use this combo for further rows decision
