@@ -61,6 +61,8 @@
 
 
 //using combinators
+//time-o(n)-one for loop
+//spcae-const
 class Solution {
     int mod=1_000_000_007;
 
