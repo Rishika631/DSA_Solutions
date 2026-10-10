@@ -30,5 +30,5 @@ class Solution {
         return true;
     }
 }
-//TC-> n^2
+//TC-> n
 //SC->const or O(1)
