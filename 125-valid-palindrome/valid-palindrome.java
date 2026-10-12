@@ -1,6 +1,6 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        s=s.toLowerCase();
+        // s=s.toLowerCase();
         int start=0;
         int last=s.length()-1;
         while(start<=last)
@@ -14,7 +14,7 @@ class Solution {
             }
             else
             {
-                if(s.charAt(start)!=s.charAt(last))
+                if(Character.toLowerCase(s.charAt(start))!=Character.toLowerCase(s.charAt(last)))//O(1) or string lower case ek sath n no impact much in TC
                 {
                     return false;
                 }
