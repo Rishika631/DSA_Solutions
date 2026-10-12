@@ -1,34 +1,64 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        s=s.toLowerCase();//TC-n
-        s=s.replaceAll("\\s+","");//TC-n or worst case exponential but this case n
-        int right=s.length()-1;
-        for(int i=0;i<s.length();i++)
+        s=s.toLowerCase();
+        int start=0;
+        int last=s.length()-1;
+        while(start<=last)
         {
-            if(Character.isLetterOrDigit(s.charAt(i)) && Character.isLetterOrDigit(s.charAt(right)))
+            if(!Character.isLetterOrDigit(s.charAt(start)))
             {
-            if(s.charAt(i)!=s.charAt(right))
+                start++;
+            } else if(!Character.isLetterOrDigit(s.charAt(last)))
             {
-
-                return false;
+                last--;
             }
-            right--;
-            }
-            else if(Character.isLetterOrDigit(s.charAt(i)) && !Character.isLetterOrDigit(s.charAt(right)))//Character.isLetterOrDigit(s.charAt(i)) tc is O(1)
+            else
             {
-                while(!Character.isLetterOrDigit(s.charAt(right)))
+                if(s.charAt(start)!=s.charAt(last))
                 {
-                    right--;
+                    return false;
                 }
-            if(s.charAt(i)!=s.charAt(right))
-            {
-                return false;
-            }
-            right--;
+                start++;
+                last--;
             }
         }
         return true;
     }
 }
-//TC-> n
-//SC->const or O(1)
+//TC->O(n)
+//SC->const
+
+// class Solution {
+//     public boolean isPalindrome(String s) {
+//         s=s.toLowerCase();//TC-n
+//         s=s.replaceAll("\\s+","");//TC-n or worst case exponential but this case n
+//         int right=s.length()-1;
+//         for(int i=0;i<s.length();i++)
+//         {
+//             if(Character.isLetterOrDigit(s.charAt(i)) && Character.isLetterOrDigit(s.charAt(right)))
+//             {
+//             if(s.charAt(i)!=s.charAt(right))
+//             {
+
+//                 return false;
+//             }
+//             right--;
+//             }
+//             else if(Character.isLetterOrDigit(s.charAt(i)) && !Character.isLetterOrDigit(s.charAt(right)))//Character.isLetterOrDigit(s.charAt(i)) tc is O(1)
+//             {
+//                 while(!Character.isLetterOrDigit(s.charAt(right)))
+//                 {
+//                     right--;
+//                 }
+//             if(s.charAt(i)!=s.charAt(right))
+//             {
+//                 return false;
+//             }
+//             right--;
+//             }
+//         }
+//         return true;
+//     }
+// }
+// //TC-> n^2
+// //SC->const or O(1)
