@@ -50,3 +50,40 @@ class Solution {
 }
 //TC->O(n)
 //SC->O(1) const size arrays if hashmap then n pr dependent
+
+//hashmap approach
+// class Solution {
+//     public boolean isIsomorphic(String s, String t) {
+//         if(s.length() != t.length())
+//             return false;
+
+//         HashMap<Character, Character> charMapping = new HashMap<>();
+//         HashSet<Character> usedReplacements = new HashSet<>();
+
+//         for(int i = 0; i < s.length(); i++) {
+//             char original = s.charAt(i);
+//             char replacement = t.charAt(i);
+
+//             // Create a new mapping
+//             if(!charMapping.containsKey(original)) {
+
+//                 // Replacement is already mapped to another character
+//                 if(usedReplacements.contains(replacement))// same t k liye do s toh nhi like s-> egf and t-> add
+//                     return false;
+
+//                 charMapping.put(original, replacement);
+//                 usedReplacements.add(replacement);
+//             }
+
+//             // Existing mapping must remain consistent
+//             else if(charMapping.get(original) != replacement) {//same s k liye do t toh nhi like s->egg and t->adf
+//                 return false;
+//             }
+//         }
+
+//         return true;
+//     }
+// }
+
+//TC-> O(n)
+//SC-> O(n) hashset n hashmap so 2n
