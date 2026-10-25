@@ -1,26 +1,31 @@
 class Solution {
     public boolean rotateString(String s, String goal) {
-        int n = s.length();
-        if (n != goal.length()) return false;
-        
-        int[][] dfa = new int[n][26];
-        dfa[0][s.charAt(0) - 'a'] = 1;
-        
-        int x = 0;
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < 26; j++)
-                dfa[i][j] = dfa[x][j];
-            int c = s.charAt(i) - 'a';
-            dfa[i][c] = i + 1;
-            x = dfa[x][c];
+        int len=s.length();
+        boolean ans=false;
+        if(len!=goal.length())
+        {
+            return false;
         }
-        
-        int state = 0;
-        for (int i = 0; i < n << 1; i++) {
-            state = dfa[state][goal.charAt(i % n) - 'a'];
-            if (state == n) return true;
+        for(int i=0;i<len;i++)
+        {
+            if(s.charAt(0)==goal.charAt(i))
+            {
+                for(int j=0;j<len;j++)
+                {
+                    if(s.charAt(j)!=goal.charAt((i+j)%len))
+                    {
+                        ans=false;
+                        break;
+                    }
+                    if(j==len-1)
+                    {
+                        return true;
+                    }
+                }
+            }
         }
-        
-        return false;
+        return ans;
     }
 }
+//TC->O(n2)
+//SC->O(1)
